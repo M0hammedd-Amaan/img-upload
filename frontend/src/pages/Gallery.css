@@ -1,0 +1,25 @@
+.gallery-card {
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card.selected {
+    border: 2px solid #007bff;
+    background-color: #e6f2ff;
+}
+
+.floating-buttons button:hover {
+    opacity: 0.85;
+}
