@@ -5,3 +5,4 @@ flask_bcrypt
 psycopg2-binary
 boto3
 python-dotenv
+jwt
