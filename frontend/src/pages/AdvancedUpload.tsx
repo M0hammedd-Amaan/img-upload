@@ -41,12 +41,13 @@ const AdvancedUpload: React.FC<Props> = ({ selectedFolder, onUploadSuccess }) =>
         }
 
         try {
-            await axios.post('http://localhost:5000/upload-multiple', formData, {
+            await axios.post('http://15.206.73.143:5000/upload-multiple', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
                 }
             });
+
 
             alert('✅ Upload successful!');
             setFiles([]);

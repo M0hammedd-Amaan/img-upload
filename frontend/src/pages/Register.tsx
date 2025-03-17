@@ -11,7 +11,7 @@ const Register: React.FC<RegisterProps> = ({ onRegisterSuccess }) => {
 
     const handleRegister = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/register', { username, password });
+            const res = await axios.post('http://15.206.73.143:5000/register', { username, password });
 
             alert(res.data.message || '✅ Registration successful!');
             onRegisterSuccess();

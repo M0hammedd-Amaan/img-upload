@@ -12,7 +12,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, onRegisterClick }) => {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/login', { username, password });
+            const res = await axios.post('http://15.206.73.143:5000/login', { username, password });
 
             localStorage.setItem('token', res.data.token);
             onLoginSuccess();
