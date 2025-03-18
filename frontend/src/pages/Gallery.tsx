@@ -77,7 +77,7 @@ const Gallery: React.FC<Props> = ({ onLogout }) => {
 
     const fetchFolders = async () => {
         try {
-            let url = 'http://15.206.73.143:5000/folders';
+            let url = 'http://15.206.73.143/api/folders';
             if (selectedFolder) url += `?folder_id=${selectedFolder}`;
 
             const res = await axios.get<Folder[]>(url, {
@@ -91,7 +91,7 @@ const Gallery: React.FC<Props> = ({ onLogout }) => {
 
     const fetchImages = async () => {
         try {
-            let url = 'http://15.206.73.143:5000/images';
+            let url = 'http://15.206.73.143/api/images';
             url += selectedFolder ? `?folder_id=${selectedFolder}` : '?folder_id=null';
 
             const res = await axios.get<Image[]>(url, {
@@ -109,7 +109,7 @@ const Gallery: React.FC<Props> = ({ onLogout }) => {
 
         try {
             await axios.post(
-                'http://15.206.73.143:5000/folders',
+                'http://15.206.73.143/api/folders',
                 { name: folderName, parent_id: selectedFolder },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -126,7 +126,7 @@ const Gallery: React.FC<Props> = ({ onLogout }) => {
 
         try {
             const endpoint = selectedItem.type === 'image' ? 'images' : 'folders';
-            await axios.delete(`http://15.206.73.143:5000/${endpoint}/${selectedItem.id}`, {
+            await axios.delete(`http://15.206.73.143/api/${endpoint}/${selectedItem.id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             fetchFolders();
@@ -153,8 +153,8 @@ const Gallery: React.FC<Props> = ({ onLogout }) => {
         try {
             const url =
                 copyOrCutItem.type === 'image'
-                    ? `http://15.206.73.143:5000/images/${copyOrCutItem.id}/move`
-                    : `http://15.206.73.143:5000/folders/${copyOrCutItem.id}/move`;
+                    ? `http://15.206.73.143/api/images/${copyOrCutItem.id}/move`
+                    : `http://15.206.73.143/api/folders/${copyOrCutItem.id}/move`;
 
             await axios.put(
                 url,
